@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Update the displayed/configured total capital value to 327 (no other changes)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update the backend default PerformanceMetrics value so that totalCapital is initialized to 327 (i.e., the value returned by getPerformanceMetrics should show totalCapital = 327 unless later changed via updatePerformanceMetrics), without changing any other metrics defaults or UI behavior.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Set Total Capital default value to 327",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

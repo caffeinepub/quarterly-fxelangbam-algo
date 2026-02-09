@@ -1,2 +1,3 @@
-# quarterly-fxelangbam-algo
-Exported from Caffeine project: Set Total Capital default value to 327
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

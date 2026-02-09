@@ -1,0 +1,38 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T03:27:14.471Z",
+  "summary": "REQ-1’s default initialization for performanceMetrics.totalCapital is set to 327.0 in backend/main.mo, but the diff also introduces additional backend functionality/structure changes (a new migration module, actor migration hook, and type/schema changes) beyond the requested single change.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Added a new backend migration module and wired it into the canister actor (migration = Migration.run).",
+      "reason": "BuildRequest explicitly constrained changes to be only setting the default totalCapital value and keeping all logic in backend/main.mo; adding a new backend/migration.mo file and migration wiring is additional functionality/structure not requested.",
+      "evidence": [
+        "backend/migration.mo",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Modified/expanded PerformanceMetrics type to include a totalCapital field (and corresponding migration comment/handling).",
+      "reason": "REQ-1 asks only to update the default value of totalCapital; it does not request adding the field/type changes or a migration to introduce it.",
+      "evidence": [
+        "backend/main.mo",
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "Updated project_state.json with new feature request entries (AR-1/AR-2).",
+      "reason": "Not requested by the BuildRequest; it is an additional non-functional project metadata change outside the requested backend-only default adjustment.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "project_state.json"
+  ]
+}
