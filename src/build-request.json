@@ -1,50 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Set Total Capital default value to 327",
+  "title": "Set Total Capital display value to 327",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the backend default PerformanceMetrics value so that totalCapital is initialized to 327 (i.e., the value returned by getPerformanceMetrics should show totalCapital = 327 unless later changed via updatePerformanceMetrics), without changing any other metrics defaults or UI behavior.",
-      "target": "backend",
+      "text": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
+      "target": "both",
       "source": {
         "messageIds": [
-          "recent-messages-9"
+          "msg-6"
         ],
         "quotes": [
-          "Everything is fine but please only change total capital  327"
+          "Make it 327"
         ]
       },
       "acceptanceCriteria": [
-        "In backend/main.mo, the initial performanceMetrics.totalCapital value is 327.0.",
-        "With a fresh canister state (no prior admin updates), getPerformanceMetrics returns totalCapital = 327.0.",
-        "All other default PerformanceMetrics fields remain unchanged (totalPnl=0.0, totalTrades=0, winningTrades=0, roi=0.0, maxDrawdown=0.0).",
-        "No frontend files are modified as part of this change."
+        "When visiting the Home page, the \"Total Capital\" tile renders as \"$327.00\" (or equivalent existing currency formatting for 327).",
+        "No other tiles or text in the \"Overall Performance\" section are changed."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single-actor Motoko canister (all logic in backend/main.mo).",
-    "Do not modify any frontend immutable paths listed in SYSTEM_CONTEXT.",
-    "Make no other functional changes beyond setting totalCapital to 327."
+    "Apply the change only to the selected element identified by XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1].",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Changing how Total Capital is formatted or displayed in the UI.",
-    "Changing any other performance metric values.",
-    "Adding new admin controls, routes, or settings for total capital."
+    "Do not redesign the Home page layout or change any other metrics/tiles.",
+    "Do not add new metrics fields or new UI controls."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

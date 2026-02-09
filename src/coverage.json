@@ -1,21 +1,25 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T03:27:14.473Z",
+  "generatedAt": "2026-02-09T04:24:44.844Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 0,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the backend default PerformanceMetrics value so that totalCapital is initialized to 327 (i.e., the value returned by getPerformanceMetrics should show totalCapital = 327 unless later changed via updatePerformanceMetrics), without changing any other metrics defaults or UI behavior.",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
+        "summary": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ]
       }
     ]
   },
@@ -24,11 +28,9 @@
     "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
+    "frontend/src/features/public/pages/HomePage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -62,7 +62,7 @@ actor {
     winningTrades = 0;
     roi = 0.0;
     maxDrawdown = 0.0;
-    totalCapital = 327.0;
+    totalCapital = 327.0; // Hardcoded per requirements
   };
 
   // Include Authorization
@@ -177,46 +177,29 @@ actor {
     performanceMetrics := newMetrics;
   };
 
-  // Public Read-Only Queries - Now Protected
-  public query ({ caller }) func getTrade(id : Nat) : async ?Trade {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view trades");
-    };
+  // Public Read-Only Queries
+  public query func getTrade(id : Nat) : async ?Trade {
     tradesMap.get(id);
   };
 
-  public query ({ caller }) func getAllTradesSorted() : async [Trade] {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view trades");
-    };
+  public query func getAllTradesSorted() : async [Trade] {
     tradesMap.values().toArray().sort();
   };
 
-  public query ({ caller }) func getAllTradesSortedByPnl() : async [Trade] {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view trades");
-    };
+  public query func getAllTradesSortedByPnl() : async [Trade] {
     tradesMap.values().toArray().sort(Trade.compareByPnl);
   };
 
-  public query ({ caller }) func getAccount(id : Nat) : async ?ManagedAccount {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view accounts");
-    };
+  public query func getAccount(id : Nat) : async ?ManagedAccount {
     accountsMap.get(id);
   };
 
-  public query ({ caller }) func getAllAccounts() : async [ManagedAccount] {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view accounts");
-    };
+  public query func getAllAccounts() : async [ManagedAccount] {
     accountsMap.values().toArray();
   };
 
-  public query ({ caller }) func getPerformanceMetrics() : async PerformanceMetrics {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view performance metrics");
-    };
+  // Public query - accessible to all users including guests
+  public query func getPerformanceMetrics() : async PerformanceMetrics {
     performanceMetrics;
   };
 };

@@ -1,4 +1,24 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-update-the-value-shown-in-the-public-home-page-overall-performance-section-s-total-capital-tile-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-4-div-2-div-1-so-it-displays-327-rendered-with-the-existing-currency-formatting",
+      "featureTitle": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

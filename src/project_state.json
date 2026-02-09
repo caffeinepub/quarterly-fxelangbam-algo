@@ -5,24 +5,25 @@
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "existing_features": [],
-  "new_feature_requests": [
+  "existing_features": [
     {
-      "id": "AR-1",
-      "summary": "Update the displayed/configured total capital value to 327 (no other changes)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Update the backend default PerformanceMetrics value so that totalCapital is initialized to 327 (i.e., the value returned by getPerformanceMetrics should show totalCapital = 327 unless later changed via updatePerformanceMetrics), without changing any other metrics defaults or UI behavior.",
+      "id": "feature-update-the-value-shown-in-the-public-home-page-overall-performance-section-s-total-capital-tile-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-4-div-2-div-1-so-it-displays-327-rendered-with-the-existing-currency-formatting",
+      "title": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
       "reqIds": [
         "REQ-1"
       ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Update the total capital value/option to 327",
+      "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Set Total Capital default value to 327",
+  "projectName": "Set Total Capital display value to 327",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

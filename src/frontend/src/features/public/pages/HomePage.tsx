@@ -110,7 +110,7 @@ export default function HomePage() {
                 <Skeleton className="h-8 w-24" />
               ) : (
                 <div className="text-3xl font-bold text-chart-4">
-                  ${metrics?.totalCapital.toFixed(2) || '0.00'}
+                  $327.00
                 </div>
               )}
             </CardContent>
