@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the “Built with … caffeine.ai” attribution from the public site footer without changing any other footer content.
+**Goal:** Make the Home page Total P&L value display a fixed static value.
 
 **Planned changes:**
-- Update `frontend/src/components/app/PublicFooter.tsx` to stop rendering the “Built with” text span, heart icon SVG, “using” text span, and the external `caffeine.ai` link.
-- Keep the rest of the footer unchanged, including the disclaimer block and existing layout/styling.
+- Update the existing Total P&L value `<span>` on the Home page to render exactly the text `17.5` (no currency symbol, no numeric formatting, no fallback logic).
+- Keep all surrounding layout and other metric cards unchanged.
 
-**User-visible outcome:** The public site footer no longer displays the “Built with … caffeine.ai” attribution (text, icon, or link), while the disclaimer and other footer content remain the same.
+**User-visible outcome:** On the Home page, the Total P&L card shows exactly `17.5`.

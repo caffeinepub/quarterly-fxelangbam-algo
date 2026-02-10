@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-public-site-footer-frontend-src-components-app-publicfooter-tsx-remove-the-built-with-text-span-the-heart-icon-svg-the-using-text-span-and-the-caffeine-ai-external-link-so-they-no-longer-render-in-the-footer-keep-the-rest-of-the-footer-unchanged-including-the-disclaimer-block-and-the-surrounding-layout-styling",
-      "featureTitle": "In the public site footer (frontend/src/components/app/PublicFooter.tsx), remove the “Built with” text span, the heart icon SVG, the “using” text span, and the caffeine.ai external link so they no longer render in the footer. Keep the rest of the footer unchanged (including the disclaimer block and the surrounding layout/styling).",
+      "featureId": "feature-update-the-selected-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1-the-total-p-l-value-span-on-the-home-page-so-that-it-displays-exactly-the-static-text-17-5-with-no-added-formatting-e-g-no-prefix-no-tofixed-no-fallback-values-while-keeping-the-element-as-a-span-and-not-changing-any-other-elements",
+      "featureTitle": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
       "files": [
-        "frontend/src/components/app/PublicFooter.tsx"
+        "frontend/src/features/public/pages/HomePage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -16,7 +16,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-1"
       ],
       "confidence": "high"
     }

@@ -1,36 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Remove the “Built with … caffeine.ai” footer attribution",
+  "title": "Set Total P&L display span to static value 17.5",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-2",
-      "text": "In the public site footer (frontend/src/components/app/PublicFooter.tsx), remove the “Built with” text span, the heart icon SVG, the “using” text span, and the caffeine.ai external link so they no longer render in the footer. Keep the rest of the footer unchanged (including the disclaimer block and the surrounding layout/styling).",
+      "id": "REQ-1",
+      "text": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-user-1"
         ],
         "quotes": [
-          "Remove this"
+          "Make total Pnl 17.5",
+          "Only 17.5",
+          "Yaa"
         ]
       },
       "acceptanceCriteria": [
-        "The footer no longer shows the text “Built with”.",
-        "The heart icon no longer appears in the footer.",
-        "The footer no longer shows the text “using”.",
-        "The “caffeine.ai” link is removed and no longer appears in the DOM.",
-        "The disclaimer section remains present and unchanged."
+        "When navigating to the Home page, the Total P&L card’s value span renders exactly: 17.5",
+        "The displayed value is not derived from metrics, does not use numeric formatting (e.g., toFixed), and does not include a currency symbol",
+        "Only the selected span element is modified; surrounding layout/structure and other metric cards remain unchanged"
       ]
     }
   ],
   "constraints": [
-    "Apply the change only to the selected footer elements (Built with / heart icon / using / caffeine.ai link) and do not alter other footer content.",
-    "Do not modify any files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT."
+    "Apply changes ONLY to the selected element identified by XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1].",
+    "Do not edit any files under frontend/src/components/ui (read-only).",
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Changing the disclaimer text or styling.",
-    "Adding a replacement attribution/link or any new footer content."
+    "Do not make Total P&L dynamically calculated from trades/metrics.",
+    "Do not add UI controls to edit Total P&L.",
+    "Do not change backend metrics/trade calculations or persistence."
   ],
   "imageRequirements": {
     "required": [],
