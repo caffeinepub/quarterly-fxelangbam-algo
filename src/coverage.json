@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T04:24:44.844Z",
+  "generatedAt": "2026-02-09T04:57:03.144Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,26 +11,24 @@
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
+        "id": "REQ-2",
+        "summary": "In the public site footer (frontend/src/components/app/PublicFooter.tsx), remove the “Built with” text span, the heart icon SVG, the “using” text span, and the caffeine.ai external link so they no longer render in the footer. Keep the rest of the footer unchanged (including the disclaimer block and the surrounding layout/styling).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/features/public/pages/HomePage.tsx"
+          "frontend/src/components/app/PublicFooter.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/features/public/pages/HomePage.tsx"
+          "frontend/src/components/app/PublicFooter.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
-    "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/features/public/pages/HomePage.tsx",
+    "frontend/src/components/app/PublicFooter.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

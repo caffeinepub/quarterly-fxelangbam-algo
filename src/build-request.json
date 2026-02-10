@@ -1,33 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Set Total Capital display value to 327",
+  "title": "Remove the “Built with … caffeine.ai” footer attribution",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Update the value shown in the public Home page \"Overall Performance\" section’s \"Total Capital\" tile (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1]) so it displays 327 (rendered with the existing currency formatting).",
-      "target": "both",
+      "id": "REQ-2",
+      "text": "In the public site footer (frontend/src/components/app/PublicFooter.tsx), remove the “Built with” text span, the heart icon SVG, the “using” text span, and the caffeine.ai external link so they no longer render in the footer. Keep the rest of the footer unchanged (including the disclaimer block and the surrounding layout/styling).",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-1"
         ],
         "quotes": [
-          "Make it 327"
+          "Remove this"
         ]
       },
       "acceptanceCriteria": [
-        "When visiting the Home page, the \"Total Capital\" tile renders as \"$327.00\" (or equivalent existing currency formatting for 327).",
-        "No other tiles or text in the \"Overall Performance\" section are changed."
+        "The footer no longer shows the text “Built with”.",
+        "The heart icon no longer appears in the footer.",
+        "The footer no longer shows the text “using”.",
+        "The “caffeine.ai” link is removed and no longer appears in the DOM.",
+        "The disclaimer section remains present and unchanged."
       ]
     }
   ],
   "constraints": [
-    "Apply the change only to the selected element identified by XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[4]/div[2]/div[1].",
-    "Use English for any user-facing text."
+    "Apply the change only to the selected footer elements (Built with / heart icon / using / caffeine.ai link) and do not alter other footer content.",
+    "Do not modify any files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Do not redesign the Home page layout or change any other metrics/tiles.",
-    "Do not add new metrics fields or new UI controls."
+    "Changing the disclaimer text or styling.",
+    "Adding a replacement attribution/link or any new footer content."
   ],
   "imageRequirements": {
     "required": [],

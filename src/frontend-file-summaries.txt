@@ -2,7 +2,7 @@
   "frontend/src/App.tsx": "Main application component with TanStack Router setup wrapped in SiteWideGate guard that blocks all routes until username/password authentication succeeds, keeping existing admin Internet Identity flow independent.",
   "frontend/src/components/app/AppHeader.tsx": "Shared header component displaying the site branding logo/wordmark with link to homepage, now using the updated wordmark asset with correct capitalization and alt text \"Quarterly FXelangbam algo\".",
   "frontend/src/components/app/PublicLayout.tsx": "Public layout wrapper with header, responsive navigation menu, main content area, and footer; includes subtle background texture overlay.",
-  "frontend/src/components/app/PublicFooter.tsx": "Footer component with trading risk disclaimer and copyright attribution including caffeine.ai link.",
+  "frontend/src/components/app/PublicFooter.tsx": "Footer component with trading risk disclaimer and simple copyright year, with caffeine.ai attribution removed.",
   "frontend/src/components/app/AdminLayout.tsx": "Admin-specific layout with admin header showing dashboard title and subtitle \"Quarterly FXelangbam algo\" (with uppercase FX), plus logout button for authenticated admins.",
   "frontend/src/features/auth/types.ts": "TypeScript type definitions for authentication state and status.",
   "frontend/src/features/auth/hooks/useAdminAuth.ts": "Custom hook that combines Internet Identity authentication with backend admin role checking to provide unified admin auth state.",

@@ -10,9 +10,9 @@ import Time "mo:core/Time";
 import Float "mo:core/Float";
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
-import Migration "migration";
 
-(with migration = Migration.run)
+
+
 actor {
   // Trade and Account Types
   public type Trade = {

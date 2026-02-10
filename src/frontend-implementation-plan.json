@@ -1,20 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Home page Total Capital tile displays 327",
+  "title": "Remove caffeine.ai attribution from public footer",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Set the Home page \"Overall Performance\" section \"Total Capital\" tile to display 327 using existing currency formatting, without changing any other tiles.",
+      "id": "REQ-2",
+      "summary": "Remove the “Built with”/heart/“using”/caffeine.ai attribution elements from the public footer while keeping the rest unchanged.",
       "acceptanceCriteria": [
-        "When visiting the Home page, the \"Total Capital\" tile renders as \"$327.00\" (or equivalent existing currency formatting for 327).",
-        "No other tiles or text in the \"Overall Performance\" section are changed."
+        "The footer no longer shows the text “Built with”.",
+        "The heart icon no longer appears in the footer.",
+        "The footer no longer shows the text “using”.",
+        "The “caffeine.ai” link is removed and no longer appears in the DOM.",
+        "The disclaimer section remains present and unchanged."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "path": "frontend/src/components/app/PublicFooter.tsx",
           "operation": "modify",
-          "description": "Update only the \"Total Capital\" tile value rendering (the div currently displaying `${metrics?.totalCapital.toFixed(2) || '0.00'}`) so it displays 327 using the existing currency formatting logic (e.g., toFixed(2) with the existing \"$\" prefix). Ensure no other tiles or surrounding layout/text are modified, matching the XPath-scoped element intent."
+          "description": "Remove the “Built with” span, the Heart icon, the “using” span, and the external caffeine.ai link so they no longer render; keep the disclaimer block and existing footer layout/styling unchanged. Also remove any now-unused imports related to the removed elements."
         }
       ]
     }

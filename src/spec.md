@@ -1,9 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Update the Home page “Overall Performance” section so the “Total Capital” tile displays 327 using the existing currency formatting.
+**Goal:** Remove the “Built with … caffeine.ai” attribution from the public site footer without changing any other footer content.
 
 **Planned changes:**
-- Change the value rendered in the “Total Capital” tile at the specified XPath to 327, preserving the current currency formatting.
+- Update `frontend/src/components/app/PublicFooter.tsx` to stop rendering the “Built with” text span, heart icon SVG, “using” text span, and the external `caffeine.ai` link.
+- Keep the rest of the footer unchanged, including the disclaimer block and existing layout/styling.
 
-**User-visible outcome:** On the Home page, the “Total Capital” tile in “Overall Performance” displays “$327.00” (or the app’s equivalent existing currency formatting for 327), with no other tiles or text changed.
+**User-visible outcome:** The public site footer no longer displays the “Built with … caffeine.ai” attribution (text, icon, or link), while the disclaimer and other footer content remain the same.

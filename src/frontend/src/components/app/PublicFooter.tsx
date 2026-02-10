@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react';
-
 export default function PublicFooter() {
   return (
     <footer className="border-t border-border/50 bg-card/30 backdrop-blur-sm mt-auto">
@@ -15,19 +13,7 @@ export default function PublicFooter() {
 
           {/* Copyright */}
           <div className="text-center text-sm text-muted-foreground">
-            <p className="flex items-center justify-center gap-1.5 flex-wrap">
-              <span>© 2026. Built with</span>
-              <Heart className="h-3.5 w-3.5 fill-chart-1 text-chart-1" />
-              <span>using</span>
-              <a
-                href="https://caffeine.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                caffeine.ai
-              </a>
-            </p>
+            <p>© 2026</p>
           </div>
         </div>
       </div>

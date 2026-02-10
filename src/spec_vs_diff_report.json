@@ -1,32 +1,14 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-09T04:24:44.842Z",
-  "summary": "REQ-1 appears to be implemented by setting Total Capital to 327.0 in backend performance metrics and (per the HomePage summary) rendering Total Capital as $327.00 on the public Home page. However, the diff also introduces a new backend metrics field and migration scaffolding, which were not requested and may violate the stated non-goals.",
+  "generatedAt": "2026-02-09T04:57:03.142Z",
+  "summary": "PublicFooter.tsx was updated to remove the “Built with … using … caffeine.ai” attribution elements; the footer now renders the disclaimer block and a simple copyright line.",
   "missing_requirements": [],
-  "hallucinated_features": [
-    {
-      "description": "Added a new `totalCapital` field to the backend `PerformanceMetrics` type (introducing a new metrics field rather than only changing an existing displayed value).",
-      "reason": "BuildRequest non-goals explicitly say not to add new metrics fields; the change requests only updating the displayed value for the existing Total Capital tile.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "description": "Added migration scaffolding and wired it into the backend actor (`migration.mo` and `with migration = Migration.run`).",
-      "reason": "No migration-related work is requested by REQ-1; requirement is a UI display value change for a specific tile.",
-      "evidence": [
-        "backend/migration.mo",
-        "backend/main.mo"
-      ]
-    }
-  ],
-  "confidence": 0.62,
+  "hallucinated_features": [],
+  "confidence": 0.74,
   "changed_files": [
-    "backend/main.mo",
-    "backend/migration.mo",
     "frontend-file-summaries.txt",
-    "frontend/src/features/public/pages/HomePage.tsx",
+    "frontend/src/components/app/PublicFooter.tsx",
     "project_state.json"
   ]
 }
