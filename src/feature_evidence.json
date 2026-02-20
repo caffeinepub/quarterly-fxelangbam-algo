@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-selected-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1-the-total-p-l-value-span-on-the-home-page-so-that-it-displays-exactly-the-static-text-17-5-with-no-added-formatting-e-g-no-prefix-no-tofixed-no-fallback-values-while-keeping-the-element-as-a-span-and-not-changing-any-other-elements",
-      "featureTitle": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
+      "featureId": "feature-update-only-the-selected-total-p-l-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1-a-span-in-homepage-to-display-the-exact-static-text-17-5-include-the-sign-keeping-it-as-a-span-and-not-adding-any-additional-formatting-or-computed-fallback-values",
+      "featureTitle": "Update ONLY the selected Total P&L value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (a <span> in HomePage) to display the exact static text \"$17.5\" (include the $ sign), keeping it as a <span> and not adding any additional formatting or computed/fallback values.",
       "files": [
         "frontend/src/features/public/pages/HomePage.tsx"
       ],
@@ -17,6 +17,44 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-only-the-selected-total-trades-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-3-div-2-div-1-the-total-trades-value-container-on-homepage-so-that-it-displays-the-exact-static-text-1-no-computed-value-no-fallback-logic-while-keeping-the-element-type-unchanged",
+      "featureTitle": "Update ONLY the selected Total Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1] (the Total Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-only-the-selected-winning-trades-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-3-div-1-div-1-div-2-div-1-the-winning-trades-value-container-on-homepage-so-that-it-displays-the-exact-static-text-1-no-computed-value-no-fallback-logic-while-keeping-the-element-type-unchanged",
+      "featureTitle": "Update ONLY the selected Winning Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1] (the Winning Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

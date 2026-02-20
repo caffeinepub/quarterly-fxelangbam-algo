@@ -1,22 +1,45 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Trading performance dashboard/report UI with key metrics (Total P&L, Total Trades, Winning Trades).",
   "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": true,
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-selected-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1-the-total-p-l-value-span-on-the-home-page-so-that-it-displays-exactly-the-static-text-17-5-with-no-added-formatting-e-g-no-prefix-no-tofixed-no-fallback-values-while-keeping-the-element-as-a-span-and-not-changing-any-other-elements",
-      "title": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
+      "id": "feature-update-only-the-selected-total-p-l-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1-a-span-in-homepage-to-display-the-exact-static-text-17-5-include-the-sign-keeping-it-as-a-span-and-not-adding-any-additional-formatting-or-computed-fallback-values",
+      "title": "Update ONLY the selected Total P&L value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (a <span> in HomePage) to display the exact static text \"$17.5\" (include the $ sign), keeping it as a <span> and not adding any additional formatting or computed/fallback values.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-only-the-selected-total-trades-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-3-div-2-div-1-the-total-trades-value-container-on-homepage-so-that-it-displays-the-exact-static-text-1-no-computed-value-no-fallback-logic-while-keeping-the-element-type-unchanged",
+      "title": "Update ONLY the selected Total Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1] (the Total Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-only-the-selected-winning-trades-value-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-3-div-1-div-1-div-2-div-1-the-winning-trades-value-container-on-homepage-so-that-it-displays-the-exact-static-text-1-no-computed-value-no-fallback-logic-while-keeping-the-element-type-unchanged",
+      "title": "Update ONLY the selected Winning Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1] (the Winning Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Set Total P&L display span to static value 17.5",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Update displayed metrics: Total P&L to \"$17.5\", Total Trades to \"1\", Winning Trades to \"1\".",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "projectName": "Set Home page key metrics to specific static values",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

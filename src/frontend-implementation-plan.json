@@ -1,21 +1,50 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Set Home page Total P&L span to static 17.5",
+  "title": "Home page: set selected key metrics to static values",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Change the Home page Total P&L value span to render the exact static text \"17.5\" with no currency symbol or numeric formatting, without altering any surrounding elements.",
+      "summary": "Set the selected Total P&L value <span> on HomePage to the exact static text \"$17.5\".",
       "acceptanceCriteria": [
-        "When navigating to the Home page, the Total P&L card’s value span renders exactly: 17.5",
-        "The displayed value is not derived from metrics, does not use numeric formatting (e.g., toFixed), and does not include a currency symbol",
-        "Only the selected span element is modified; surrounding layout/structure and other metric cards remain unchanged"
+        "On the Home page, the Total P&L value <span> renders exactly \"$17.5\" as plain text.",
+        "The element remains a <span> and only this selected element’s content is changed."
       ],
       "file_operations": [
         {
           "path": "frontend/src/features/public/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Update only the existing Total P&L value <span> (the one currently rendering \"$...toFixed(2)\") so its children are exactly the static text \"17.5\" (remove \"$\", remove metrics usage, remove toFixed/fallbacks) while keeping the element as a <span> and leaving all surrounding JSX/layout unchanged."
+          "description": "Change ONLY the existing Total P&L value <span> content (the <span> inside the Total P&L card) from its current text to the exact static string \"$17.5\" (including the $ sign), without adding any computed/fallback logic and keeping the element as a <span>."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Set the selected Total Trades value container on HomePage to the exact static text \"1\".",
+      "acceptanceCriteria": [
+        "On the Home page, the Total Trades value renders exactly \"1\" as plain text.",
+        "Only the selected element is changed; other cards/labels/layout remain unchanged."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Change ONLY the existing Total Trades value container content (the value container div in the Total Trades card) to render the exact static text \"1\" and remove any computed value / fallback expression, without changing the element type or affecting other metrics."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Set the selected Winning Trades value container on HomePage to the exact static text \"1\".",
+      "acceptanceCriteria": [
+        "On the Home page, the Winning Trades value renders exactly \"1\" as plain text.",
+        "Only the selected element is changed; other sections/cards remain unchanged."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Change ONLY the existing Winning Trades value container content (the value container div under the Winning Trades card) to render the exact static text \"1\" and remove any computed value / fallback expression, without changing the element type or affecting other sections."
         }
       ]
     }

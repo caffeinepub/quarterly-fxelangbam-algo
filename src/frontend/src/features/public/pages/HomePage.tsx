@@ -54,7 +54,7 @@ export default function HomePage() {
                       metrics && metrics.totalPnl >= 0 ? 'text-chart-2' : 'text-destructive'
                     }
                   >
-                    17.5
+                    $17.5
                   </span>
                 </div>
               )}
@@ -91,7 +91,7 @@ export default function HomePage() {
                 <Skeleton className="h-8 w-20" />
               ) : (
                 <div className="text-3xl font-bold text-chart-3">
-                  {metrics?.totalTrades.toString() || '0'}
+                  1
                 </div>
               )}
             </CardContent>
@@ -130,7 +130,7 @@ export default function HomePage() {
                 <Skeleton className="h-12 w-32" />
               ) : (
                 <div className="text-4xl font-bold text-chart-2">
-                  {metrics?.winningTrades.toString() || '0'}
+                  1
                 </div>
               )}
             </CardContent>

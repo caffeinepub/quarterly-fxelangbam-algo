@@ -1,18 +1,40 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T03:27:25.027Z",
+  "generatedAt": "2026-02-10T03:38:17.645Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
+        "summary": "Update ONLY the selected Total P&L value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (a <span> in HomePage) to display the exact static text \"$17.5\" (include the $ sign), keeping it as a <span> and not adding any additional formatting or computed/fallback values.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Update ONLY the selected Total Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1] (the Total Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/features/public/pages/HomePage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update ONLY the selected Winning Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1] (the Winning Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/features/public/pages/HomePage.tsx"

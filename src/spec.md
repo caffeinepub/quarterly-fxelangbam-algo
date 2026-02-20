@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Make the Home page Total P&L value display a fixed static value.
+**Goal:** Set specific Home page key metric values to fixed static text.
 
 **Planned changes:**
-- Update the existing Total P&L value `<span>` on the Home page to render exactly the text `17.5` (no currency symbol, no numeric formatting, no fallback logic).
-- Keep all surrounding layout and other metric cards unchanged.
+- Update the Home page Total P&L value <span> to render exactly "$17.5" as plain text.
+- Update the Home page Total Trades value element to render exactly "1" as plain text.
+- Update the Home page Winning Trades value element to render exactly "1" as plain text.
 
-**User-visible outcome:** On the Home page, the Total P&L card shows exactly `17.5`.
+**User-visible outcome:** On the Home page, Total P&L displays "$17.5", Total Trades displays "1", and Winning Trades displays "1", with only those three selected elements changed.

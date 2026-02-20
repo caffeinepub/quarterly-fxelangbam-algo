@@ -1,42 +1,84 @@
 {
   "kind": "build_request",
-  "title": "Set Total P&L display span to static value 17.5",
+  "title": "Set Home page key metrics to specific static values",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the selected element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (the Total P&L value span on the Home page) so that it displays exactly the static text \"17.5\" with no added formatting (e.g., no \"$\" prefix, no toFixed, no fallback values), while keeping the element as a <span> and not changing any other elements.",
+      "text": "Update ONLY the selected Total P&L value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1] (a <span> in HomePage) to display the exact static text \"$17.5\" (include the $ sign), keeping it as a <span> and not adding any additional formatting or computed/fallback values.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-1"
+          "msg-1"
         ],
         "quotes": [
-          "Make total Pnl 17.5",
-          "Only 17.5",
-          "Yaa"
+          "In total P&L make $17.5 make dollars logo in total trades make 1 and make Winning Trades 1",
+          "Yess"
         ]
       },
       "acceptanceCriteria": [
-        "When navigating to the Home page, the Total P&L card’s value span renders exactly: 17.5",
-        "The displayed value is not derived from metrics, does not use numeric formatting (e.g., toFixed), and does not include a currency symbol",
-        "Only the selected span element is modified; surrounding layout/structure and other metric cards remain unchanged"
+        "On the Home page, the Total P&L value <span> renders exactly \"$17.5\" as plain text.",
+        "The element remains a <span> and only this selected element’s content is changed."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update ONLY the selected Total Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1] (the Total Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "In total P&L make $17.5 make dollars logo in total trades make 1 and make Winning Trades 1",
+          "Yess"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the Home page, the Total Trades value renders exactly \"1\" as plain text.",
+        "Only the selected element is changed; other cards/labels/layout remain unchanged."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update ONLY the selected Winning Trades value element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1] (the Winning Trades value container on HomePage) so that it displays the exact static text \"1\" (no computed value, no fallback logic) while keeping the element type unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "In total P&L make $17.5 make dollars logo in total trades make 1 and make Winning Trades 1",
+          "Yess"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the Home page, the Winning Trades value renders exactly \"1\" as plain text.",
+        "Only the selected element is changed; other sections/cards remain unchanged."
       ]
     }
   ],
   "constraints": [
-    "Apply changes ONLY to the selected element identified by XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1].",
-    "Do not edit any files under frontend/src/components/ui (read-only).",
-    "Do not modify frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
-    "Use English for any user-facing text."
+    "Apply changes ONLY to the three user-selected elements identified by the provided XPaths.",
+    "Do not modify any read-only (immutable) frontend paths.",
+    "Do not change backend behavior or data models for this request."
   ],
   "nonGoals": [
-    "Do not make Total P&L dynamically calculated from trades/metrics.",
-    "Do not add UI controls to edit Total P&L.",
-    "Do not change backend metrics/trade calculations or persistence."
+    "Changing any other metrics (e.g., Win Rate, Total Capital, Max Drawdown).",
+    "Making these values editable from the UI or driven by backend data."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }
