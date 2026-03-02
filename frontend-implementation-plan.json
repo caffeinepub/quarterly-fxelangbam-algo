@@ -1,0 +1,52 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update homepage stats: Winning Trades 3, Total Trades 3, Total P&L $108.7",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Update the Winning Trades display value to 3 in the stats section of HomePage.tsx",
+      "acceptanceCriteria": [
+        "The Winning Trades metric card displays the value 3",
+        "No other stat cards are affected"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Modify the Winning Trades stat card to display the value 3. Locate the metric card that shows winning trades (referenced by XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1]) and update its display logic or data source to show 3 instead of the current value."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Update the Total Trades display value to 3 in the stats section of HomePage.tsx",
+      "acceptanceCriteria": [
+        "The Total Trades metric card displays the value 3",
+        "No other stat cards are affected"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Modify the Total Trades stat card to display the value 3. Locate the metric card that shows total trades (referenced by XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1]) and update its display logic or data source to show 3 instead of the current value."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Update the Total P&L display value to $108.7 in the stats section of HomePage.tsx",
+      "acceptanceCriteria": [
+        "The Total P&L metric card displays $108.7",
+        "No other stat cards are affected"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/features/public/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Modify the Total P&L stat card to display $108.7. Locate the metric card that shows total P&L (referenced by XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1]) and update its display logic or data source to show $108.7 instead of the current value."
+        }
+      ]
+    }
+  ]
+}

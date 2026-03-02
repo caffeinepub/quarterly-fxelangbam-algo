@@ -1,0 +1,62 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-winning-trades-display-value-to-3-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1",
+      "featureTitle": "Update the Winning Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1]",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-total-trades-display-value-to-3-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-3-div-2-div-1",
+      "featureTitle": "Update the Total Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1]",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-total-p-l-display-value-to-108-7-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-3-div-1-div-1-div-2-div-1",
+      "featureTitle": "Update the Total P&L display value to $108.7 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1]",
+      "files": [
+        "frontend/src/features/public/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

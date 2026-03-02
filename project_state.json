@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A trading stats dashboard app displaying Winning Trades, Total Trades, and Total P&L metrics.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-the-winning-trades-display-value-to-3-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-1-div-2-div-1-span-1",
+      "title": "Update the Winning Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1]",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-total-trades-display-value-to-3-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-2-div-1-div-3-div-2-div-1",
+      "title": "Update the Total Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1]",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-total-p-l-display-value-to-108-7-in-the-stats-section-of-homepage-tsx-the-target-element-is-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-section-3-div-1-div-1-div-2-div-1",
+      "title": "Update the Total P&L display value to $108.7 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1]",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "gameProjectType": "none",
+  "projectName": "Quarterly FXelangbam Algo",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

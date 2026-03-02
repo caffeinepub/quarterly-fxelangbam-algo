@@ -1,0 +1,14 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-03-02T00:16:00.059Z",
+  "summary": "The diff modifies HomePage.tsx to update Total P&L to $108.7 (REQ-3) and Total Trades to 3 (REQ-2). The file summary also confirms Winning Trades showing '3' (REQ-1). All three requirements appear to be implemented in the modified file.",
+  "missing_requirements": [],
+  "hallucinated_features": [],
+  "confidence": 0.82,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/features/public/pages/HomePage.tsx",
+    "project_state.json"
+  ]
+}

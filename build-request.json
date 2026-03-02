@@ -1,0 +1,72 @@
+{
+  "kind": "build_request",
+  "title": "Update homepage stats: Winning Trades 3, Total Trades 3, Total P&L $108.7",
+  "projectName": "Quarterly FXelangbam Algo",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the Winning Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/span[1]",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make Winning Trades 3"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Winning Trades metric card displays the value 3",
+        "No other stat cards are affected"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update the Total Trades display value to 3 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[2]/div[1]/div[3]/div[2]/div[1]",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Total trades 3"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Total Trades metric card displays the value 3",
+        "No other stat cards are affected"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the Total P&L display value to $108.7 in the stats section of HomePage.tsx. The target element is at XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/section[3]/div[1]/div[1]/div[2]/div[1]",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Total P&L $108.7"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Total P&L metric card displays $108.7",
+        "No other stat cards are affected"
+      ]
+    }
+  ],
+  "constraints": [
+    "Only modify the three specified elements identified by their XPath expressions",
+    "Do not alter any other display values, layout, or styling"
+  ],
+  "nonGoals": [
+    "Updating backend data or stored metrics",
+    "Changing any other homepage sections or components",
+    "Modifying win rate or capital metrics"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
