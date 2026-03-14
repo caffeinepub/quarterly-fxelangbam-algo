@@ -1,3 +1,5 @@
+import { type Trade, Variant_buy_sell } from "@/backend";
+import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -5,10 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Trade, Variant_buy_sell } from '@/backend';
-import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
+} from "@/components/ui/table";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 interface TradeTableProps {
   trades: Trade[];
@@ -46,16 +46,18 @@ export default function TradeTable({ trades }: TradeTableProps) {
             return (
               <TableRow key={Number(trade.id)}>
                 <TableCell className="font-medium">
-                  {date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
+                  {date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
                   })}
                 </TableCell>
-                <TableCell className="font-mono font-semibold">{trade.symbol}</TableCell>
+                <TableCell className="font-mono font-semibold">
+                  {trade.symbol}
+                </TableCell>
                 <TableCell>
                   <Badge
-                    variant={isBuy ? 'default' : 'secondary'}
+                    variant={isBuy ? "default" : "secondary"}
                     className="font-medium"
                   >
                     {isBuy ? (
@@ -72,12 +74,14 @@ export default function TradeTable({ trades }: TradeTableProps) {
                 <TableCell className="text-right font-mono">
                   ${trade.exitPrice.toFixed(2)}
                 </TableCell>
-                <TableCell className="text-right font-mono">{trade.quantity.toFixed(2)}</TableCell>
+                <TableCell className="text-right font-mono">
+                  {trade.quantity.toFixed(2)}
+                </TableCell>
                 <TableCell className="text-right">
                   <span
-                    className={`font-bold ${isProfitable ? 'text-chart-2' : 'text-destructive'}`}
+                    className={`font-bold ${isProfitable ? "text-chart-2" : "text-destructive"}`}
                   >
-                    {isProfitable ? '+' : ''}${trade.profitLoss.toFixed(2)}
+                    {isProfitable ? "+" : ""}${trade.profitLoss.toFixed(2)}
                   </span>
                 </TableCell>
               </TableRow>

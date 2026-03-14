@@ -1,20 +1,28 @@
-import { useGetAllTrades, useGetPerformanceMetrics } from '@/features/data/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
-import MonthlyPnlChart from '../components/MonthlyPnlChart';
-import WinLossChart from '../components/WinLossChart';
-import EquityCurveChart from '../components/EquityCurveChart';
-import { usePageMeta } from '@/features/seo/usePageMeta';
-import { computeMonthlyPnl, computeWinLossData, computeEquityCurve } from '../utils/analytics';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  useGetAllTrades,
+  useGetPerformanceMetrics,
+} from "@/features/data/queries";
+import { usePageMeta } from "@/features/seo/usePageMeta";
+import EquityCurveChart from "../components/EquityCurveChart";
+import MonthlyPnlChart from "../components/MonthlyPnlChart";
+import WinLossChart from "../components/WinLossChart";
+import {
+  computeEquityCurve,
+  computeMonthlyPnl,
+  computeWinLossData,
+} from "../utils/analytics";
 
 export default function PerformanceAnalyticsPage() {
   usePageMeta(
-    'Performance Analytics | Quarterly FXelangbam algo',
-    'Detailed performance analytics with monthly P&L, win/loss ratios, and equity curve visualization.'
+    "Performance Analytics | Quarterly FXelangbam algo",
+    "Detailed performance analytics with monthly P&L, win/loss ratios, and equity curve visualization.",
   );
 
   const { data: trades, isLoading: tradesLoading } = useGetAllTrades();
-  const { data: metrics, isLoading: metricsLoading } = useGetPerformanceMetrics();
+  const { data: metrics, isLoading: metricsLoading } =
+    useGetPerformanceMetrics();
 
   const isLoading = tradesLoading || metricsLoading;
 

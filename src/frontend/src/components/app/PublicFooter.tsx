@@ -6,8 +6,8 @@ export default function PublicFooter() {
           {/* Disclaimer */}
           <div className="bg-muted/30 border border-border/50 rounded-lg p-4">
             <p className="text-sm text-muted-foreground text-center">
-              <strong className="text-foreground">Disclaimer:</strong> Trading involves risk. Past
-              performance does not guarantee future results.
+              <strong className="text-foreground">Disclaimer:</strong> Trading
+              involves risk. Past performance does not guarantee future results.
             </p>
           </div>
 

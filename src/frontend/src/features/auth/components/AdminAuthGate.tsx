@@ -1,7 +1,7 @@
-import { useAdminAuth } from '../hooks/useAdminAuth';
-import { useNavigate } from '@tanstack/react-router';
-import { useEffect } from 'react';
-import { Loader2 } from 'lucide-react';
+import { useNavigate } from "@tanstack/react-router";
+import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
+import { useAdminAuth } from "../hooks/useAdminAuth";
 
 interface AdminAuthGateProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export default function AdminAuthGate({ children }: AdminAuthGateProps) {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      navigate({ to: '/admin/login' });
+      navigate({ to: "/admin/login" });
     }
   }, [isAuthenticated, isLoading, navigate]);
 

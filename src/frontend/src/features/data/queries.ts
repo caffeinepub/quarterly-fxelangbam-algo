@@ -1,14 +1,14 @@
-import { useQuery } from '@tanstack/react-query';
-import { useActor } from '@/hooks/useActor';
-import type { Trade, ManagedAccount, PerformanceMetrics } from '@/backend';
+import type { ManagedAccount, PerformanceMetrics, Trade } from "@/backend";
+import { useActor } from "@/hooks/useActor";
+import { useQuery } from "@tanstack/react-query";
 
 export function useGetPerformanceMetrics() {
   const { actor, isFetching: actorFetching } = useActor();
 
   return useQuery<PerformanceMetrics>({
-    queryKey: ['performanceMetrics'],
+    queryKey: ["performanceMetrics"],
     queryFn: async () => {
-      if (!actor) throw new Error('Actor not available');
+      if (!actor) throw new Error("Actor not available");
       return actor.getPerformanceMetrics();
     },
     enabled: !!actor && !actorFetching,
@@ -20,9 +20,9 @@ export function useGetAllTrades() {
   const { actor, isFetching: actorFetching } = useActor();
 
   return useQuery<Trade[]>({
-    queryKey: ['trades'],
+    queryKey: ["trades"],
     queryFn: async () => {
-      if (!actor) throw new Error('Actor not available');
+      if (!actor) throw new Error("Actor not available");
       return actor.getAllTradesSorted();
     },
     enabled: !!actor && !actorFetching,
@@ -34,9 +34,9 @@ export function useGetAllAccounts() {
   const { actor, isFetching: actorFetching } = useActor();
 
   return useQuery<ManagedAccount[]>({
-    queryKey: ['accounts'],
+    queryKey: ["accounts"],
     queryFn: async () => {
-      if (!actor) throw new Error('Actor not available');
+      if (!actor) throw new Error("Actor not available");
       return actor.getAllAccounts();
     },
     enabled: !!actor && !actorFetching,

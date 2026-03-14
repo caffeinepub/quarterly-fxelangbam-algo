@@ -1,16 +1,22 @@
-import { createRouter, createRoute, createRootRoute, RouterProvider, Outlet } from '@tanstack/react-router';
-import { ThemeProvider } from 'next-themes';
-import { Toaster } from '@/components/ui/sonner';
-import PublicLayout from './components/app/PublicLayout';
-import AdminLayout from './components/app/AdminLayout';
-import HomePage from './features/public/pages/HomePage';
-import PortfolioPage from './features/public/pages/PortfolioPage';
-import ManagedAccountsPage from './features/public/pages/ManagedAccountsPage';
-import PerformanceAnalyticsPage from './features/analytics/pages/PerformanceAnalyticsPage';
-import AdminDashboardPage from './features/admin/pages/AdminDashboardPage';
-import AdminLoginPage from './features/auth/pages/AdminLoginPage';
-import AdminAuthGate from './features/auth/components/AdminAuthGate';
-import SiteWideGate from './features/siteGate/SiteWideGate';
+import { Toaster } from "@/components/ui/sonner";
+import {
+  Outlet,
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from "@tanstack/react-router";
+import { ThemeProvider } from "next-themes";
+import AdminLayout from "./components/app/AdminLayout";
+import PublicLayout from "./components/app/PublicLayout";
+import AdminDashboardPage from "./features/admin/pages/AdminDashboardPage";
+import PerformanceAnalyticsPage from "./features/analytics/pages/PerformanceAnalyticsPage";
+import AdminAuthGate from "./features/auth/components/AdminAuthGate";
+import AdminLoginPage from "./features/auth/pages/AdminLoginPage";
+import HomePage from "./features/public/pages/HomePage";
+import ManagedAccountsPage from "./features/public/pages/ManagedAccountsPage";
+import PortfolioPage from "./features/public/pages/PortfolioPage";
+import SiteWideGate from "./features/siteGate/SiteWideGate";
 
 // Root route with public layout
 const rootRoute = createRootRoute({
@@ -24,32 +30,32 @@ const rootRoute = createRootRoute({
 // Public routes
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
+  path: "/",
   component: HomePage,
 });
 
 const portfolioRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/portfolio',
+  path: "/portfolio",
   component: PortfolioPage,
 });
 
 const accountsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/accounts',
+  path: "/accounts",
   component: ManagedAccountsPage,
 });
 
 const analyticsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/analytics',
+  path: "/analytics",
   component: PerformanceAnalyticsPage,
 });
 
 // Admin routes with separate layout
 const adminRootRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/admin',
+  path: "/admin",
   component: () => (
     <AdminLayout>
       <Outlet />
@@ -59,13 +65,13 @@ const adminRootRoute = createRoute({
 
 const adminLoginRoute = createRoute({
   getParentRoute: () => adminRootRoute,
-  path: '/login',
+  path: "/login",
   component: AdminLoginPage,
 });
 
 const adminDashboardRoute = createRoute({
   getParentRoute: () => adminRootRoute,
-  path: '/dashboard',
+  path: "/dashboard",
   component: () => (
     <AdminAuthGate>
       <AdminDashboardPage />
@@ -84,7 +90,7 @@ const routeTree = rootRoute.addChildren([
 
 const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }

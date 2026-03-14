@@ -1,18 +1,24 @@
-import { useGetPerformanceMetrics } from '@/features/data/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
-import { TrendingUp, TrendingDown, Activity, Target, DollarSign } from 'lucide-react';
-import { usePageMeta } from '@/features/seo/usePageMeta';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useGetPerformanceMetrics } from "@/features/data/queries";
+import { usePageMeta } from "@/features/seo/usePageMeta";
+import {
+  Activity,
+  DollarSign,
+  Target,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 
 export default function HomePage() {
   usePageMeta(
-    'Quarterly FXelangbam algo - Trading Performance',
-    'Professional trading portfolio showcasing performance metrics, trade history, and managed account results.'
+    "Quarterly FXelangbam algo - Trading Performance",
+    "Professional trading portfolio showcasing performance metrics, trade history, and managed account results.",
   );
 
   const { data: metrics, isLoading } = useGetPerformanceMetrics();
 
-  const winRate = metrics
+  const _winRate = metrics
     ? metrics.totalTrades > 0
       ? (Number(metrics.winningTrades) / Number(metrics.totalTrades)) * 100
       : 0
@@ -51,10 +57,12 @@ export default function HomePage() {
                 <div className="text-3xl font-bold">
                   <span
                     className={
-                      metrics && metrics.totalPnl >= 0 ? 'text-chart-2' : 'text-destructive'
+                      metrics && metrics.totalPnl >= 0
+                        ? "text-chart-2"
+                        : "text-destructive"
                     }
                   >
-                    $17.5
+                    $108.7
                   </span>
                 </div>
               )}
@@ -90,9 +98,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-20" />
               ) : (
-                <div className="text-3xl font-bold text-chart-3">
-                  1
-                </div>
+                <div className="text-3xl font-bold text-chart-3">3</div>
               )}
             </CardContent>
           </Card>
@@ -109,9 +115,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-24" />
               ) : (
-                <div className="text-3xl font-bold text-chart-4">
-                  $327.00
-                </div>
+                <div className="text-3xl font-bold text-chart-4">$327.00</div>
               )}
             </CardContent>
           </Card>
@@ -129,9 +133,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-12 w-32" />
               ) : (
-                <div className="text-4xl font-bold text-chart-2">
-                  1
-                </div>
+                <div className="text-4xl font-bold text-chart-2">3</div>
               )}
             </CardContent>
           </Card>
@@ -144,10 +146,86 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-12 w-32" />
               ) : (
-                <div className="text-4xl font-bold text-destructive">
-                  1
-                </div>
+                <div className="text-4xl font-bold text-destructive">1</div>
               )}
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* XauUSD Scalping Section */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold mb-6">XauUSD (Scalping)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Overall PNL
+              </CardTitle>
+              <TrendingUp className="h-4 w-4 text-chart-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-chart-2">$0</div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Total Trades (Weekly)
+              </CardTitle>
+              <Activity className="h-4 w-4 text-chart-3" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-chart-3">0</div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Win Ratio
+              </CardTitle>
+              <Target className="h-4 w-4 text-chart-1" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-chart-1">0%</div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Total Win
+              </CardTitle>
+              <TrendingUp className="h-4 w-4 text-chart-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-chart-2">0</div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Total Loss
+              </CardTitle>
+              <TrendingDown className="h-4 w-4 text-destructive" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-destructive">0</div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Total Capital
+              </CardTitle>
+              <DollarSign className="h-4 w-4 text-chart-4" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-chart-4">$496.73</div>
             </CardContent>
           </Card>
         </div>

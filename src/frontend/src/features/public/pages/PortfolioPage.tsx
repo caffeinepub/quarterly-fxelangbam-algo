@@ -1,23 +1,23 @@
-import { useState, useMemo } from 'react';
-import { useGetAllTrades } from '@/features/data/queries';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import TradeTable from '../components/TradeTable';
-import TradeFilters from '../components/TradeFilters';
-import { Skeleton } from '@/components/ui/skeleton';
-import { usePageMeta } from '@/features/seo/usePageMeta';
-import type { Trade } from '@/backend';
+import type { Trade } from "@/backend";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useGetAllTrades } from "@/features/data/queries";
+import { usePageMeta } from "@/features/seo/usePageMeta";
+import { useMemo, useState } from "react";
+import TradeFilters from "../components/TradeFilters";
+import TradeTable from "../components/TradeTable";
 
 export default function PortfolioPage() {
   usePageMeta(
-    'Portfolio - Trade History | Quarterly FXelangbam algo',
-    'View detailed trade history with filters for date, profit/loss, and trading pairs.'
+    "Portfolio - Trade History | Quarterly FXelangbam algo",
+    "View detailed trade history with filters for date, profit/loss, and trading pairs.",
   );
 
   const { data: trades, isLoading } = useGetAllTrades();
   const [filters, setFilters] = useState({
-    month: 'all',
-    year: 'all',
-    result: 'all',
+    month: "all",
+    year: "all",
+    result: "all",
   });
 
   const filteredTrades = useMemo(() => {
@@ -29,20 +29,26 @@ export default function PortfolioPage() {
       const tradeYear = tradeDate.getFullYear();
 
       // Month filter
-      if (filters.month !== 'all' && tradeMonth !== parseInt(filters.month)) {
+      if (
+        filters.month !== "all" &&
+        tradeMonth !== Number.parseInt(filters.month)
+      ) {
         return false;
       }
 
       // Year filter
-      if (filters.year !== 'all' && tradeYear !== parseInt(filters.year)) {
+      if (
+        filters.year !== "all" &&
+        tradeYear !== Number.parseInt(filters.year)
+      ) {
         return false;
       }
 
       // Result filter
-      if (filters.result === 'profit' && trade.profitLoss <= 0) {
+      if (filters.result === "profit" && trade.profitLoss <= 0) {
         return false;
       }
-      if (filters.result === 'loss' && trade.profitLoss >= 0) {
+      if (filters.result === "loss" && trade.profitLoss >= 0) {
         return false;
       }
 
@@ -55,7 +61,8 @@ export default function PortfolioPage() {
       <section className="mb-8">
         <h1 className="text-4xl font-bold mb-2">Trade Portfolio</h1>
         <p className="text-muted-foreground">
-          Complete history of all executed trades with detailed performance metrics
+          Complete history of all executed trades with detailed performance
+          metrics
         </p>
       </section>
 

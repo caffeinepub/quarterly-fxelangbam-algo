@@ -1,8 +1,8 @@
-import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { useAdminAuth } from '@/features/auth/hooks/useAdminAuth';
-import { Button } from '@/components/ui/button';
-import { LogOut } from 'lucide-react';
-import { useQueryClient } from '@tanstack/react-query';
+import { Button } from "@/components/ui/button";
+import { useAdminAuth } from "@/features/auth/hooks/useAdminAuth";
+import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { useQueryClient } from "@tanstack/react-query";
+import { LogOut } from "lucide-react";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -25,7 +25,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold">Admin Dashboard</h1>
-            <p className="text-sm text-muted-foreground">Quarterly FXelangbam algo</p>
+            <p className="text-sm text-muted-foreground">
+              Quarterly FXelangbam algo
+            </p>
           </div>
           {isAdmin && (
             <Button variant="outline" size="sm" onClick={handleLogout}>

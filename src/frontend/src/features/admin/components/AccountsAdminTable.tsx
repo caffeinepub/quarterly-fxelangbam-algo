@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { useGetAllAccounts } from '@/features/data/queries';
-import { useDeleteAccount } from '../hooks/useAdminMutations';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { ManagedAccount } from "@/backend";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -10,27 +9,30 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import AccountFormDialog from './AccountFormDialog';
-import type { ManagedAccount } from '@/backend';
-import { toast } from 'sonner';
+} from "@/components/ui/table";
+import { useGetAllAccounts } from "@/features/data/queries";
+import { Pencil, Plus, Trash2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { useDeleteAccount } from "../hooks/useAdminMutations";
+import AccountFormDialog from "./AccountFormDialog";
 
 export default function AccountsAdminTable() {
   const { data: accounts, isLoading } = useGetAllAccounts();
   const deleteAccount = useDeleteAccount();
-  const [editingAccount, setEditingAccount] = useState<ManagedAccount | null>(null);
+  const [editingAccount, setEditingAccount] = useState<ManagedAccount | null>(
+    null,
+  );
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   const handleDelete = async (id: bigint) => {
-    if (!confirm('Are you sure you want to delete this account?')) return;
+    if (!confirm("Are you sure you want to delete this account?")) return;
 
     try {
       await deleteAccount.mutateAsync(id);
-      toast.success('Account deleted successfully');
+      toast.success("Account deleted successfully");
     } catch (error) {
-      toast.error('Failed to delete account');
+      toast.error("Failed to delete account");
       console.error(error);
     }
   };
@@ -65,8 +67,12 @@ export default function AccountsAdminTable() {
                 <TableBody>
                   {accounts.map((account) => (
                     <TableRow key={Number(account.id)}>
-                      <TableCell className="font-semibold">{account.name}</TableCell>
-                      <TableCell className="text-right">${account.balance.toFixed(2)}</TableCell>
+                      <TableCell className="font-semibold">
+                        {account.name}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ${account.balance.toFixed(2)}
+                      </TableCell>
                       <TableCell>{account.riskProfile}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end gap-2">

@@ -1,4 +1,4 @@
-import type { WinLossData } from '../utils/analytics';
+import type { WinLossData } from "../utils/analytics";
 
 interface WinLossChartProps {
   data: WinLossData | null;
@@ -21,7 +21,13 @@ export default function WinLossChart({ data }: WinLossChartProps) {
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 py-8">
       {/* Donut Chart */}
       <div className="relative">
-        <svg width="200" height="200" viewBox="0 0 200 200">
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          role="img"
+          aria-label="Win vs loss donut chart"
+        >
           <circle
             cx="100"
             cy="100"

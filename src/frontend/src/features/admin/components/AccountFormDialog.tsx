@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useAddAccount, useUpdateAccount } from '../hooks/useAdminMutations';
+import type { ManagedAccount } from "@/backend";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,13 +7,13 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
-import type { ManagedAccount } from '@/backend';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { useAddAccount, useUpdateAccount } from "../hooks/useAdminMutations";
 
 interface AccountFormDialogProps {
   account: ManagedAccount | null;
@@ -31,9 +31,9 @@ export default function AccountFormDialog({
   const isEditing = !!account;
 
   const [formData, setFormData] = useState({
-    name: '',
-    balance: '',
-    riskProfile: '',
+    name: "",
+    balance: "",
+    riskProfile: "",
   });
 
   useEffect(() => {
@@ -45,9 +45,9 @@ export default function AccountFormDialog({
       });
     } else {
       setFormData({
-        name: '',
-        balance: '',
-        riskProfile: '',
+        name: "",
+        balance: "",
+        riskProfile: "",
       });
     }
   }, [account]);
@@ -58,21 +58,26 @@ export default function AccountFormDialog({
     const accountData: ManagedAccount = {
       id: account?.id || BigInt(0),
       name: formData.name,
-      balance: parseFloat(formData.balance),
+      balance: Number.parseFloat(formData.balance),
       riskProfile: formData.riskProfile,
     };
 
     try {
       if (isEditing) {
-        await updateAccount.mutateAsync({ id: account.id, account: accountData });
-        toast.success('Account updated successfully');
+        await updateAccount.mutateAsync({
+          id: account.id,
+          account: accountData,
+        });
+        toast.success("Account updated successfully");
       } else {
         await addAccount.mutateAsync(accountData);
-        toast.success('Account added successfully');
+        toast.success("Account added successfully");
       }
       onOpenChange(false);
     } catch (error) {
-      toast.error(isEditing ? 'Failed to update account' : 'Failed to add account');
+      toast.error(
+        isEditing ? "Failed to update account" : "Failed to add account",
+      );
       console.error(error);
     }
   };
@@ -84,9 +89,13 @@ export default function AccountFormDialog({
       <DialogContent className="sm:max-w-[425px]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>{isEditing ? 'Edit Account' : 'Add New Account'}</DialogTitle>
+            <DialogTitle>
+              {isEditing ? "Edit Account" : "Add New Account"}
+            </DialogTitle>
             <DialogDescription>
-              {isEditing ? 'Update the account details below.' : 'Enter the account details below.'}
+              {isEditing
+                ? "Update the account details below."
+                : "Enter the account details below."}
             </DialogDescription>
           </DialogHeader>
 
@@ -96,7 +105,9 @@ export default function AccountFormDialog({
               <Input
                 id="name"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 placeholder="e.g., Client Account 001"
                 required
               />
@@ -109,7 +120,9 @@ export default function AccountFormDialog({
                 type="number"
                 step="0.01"
                 value={formData.balance}
-                onChange={(e) => setFormData({ ...formData, balance: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, balance: e.target.value })
+                }
                 placeholder="0.00"
                 required
               />
@@ -120,7 +133,9 @@ export default function AccountFormDialog({
               <Input
                 id="riskProfile"
                 value={formData.riskProfile}
-                onChange={(e) => setFormData({ ...formData, riskProfile: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, riskProfile: e.target.value })
+                }
                 placeholder="e.g., Conservative, Moderate, Aggressive"
                 required
               />
@@ -128,12 +143,16 @@ export default function AccountFormDialog({
           </div>
 
           <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => onOpenChange(false)}
+            >
               Cancel
             </Button>
             <Button type="submit" disabled={isPending}>
               {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isEditing ? 'Update' : 'Add'} Account
+              {isEditing ? "Update" : "Add"} Account
             </Button>
           </DialogFooter>
         </form>

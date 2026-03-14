@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useAddTrade, useUpdateTrade } from '../hooks/useAdminMutations';
+import { type Trade, Variant_buy_sell } from "@/backend";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,14 +7,20 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
-import { Trade, Variant_buy_sell } from '@/backend';
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { useAddTrade, useUpdateTrade } from "../hooks/useAdminMutations";
 
 interface TradeFormDialogProps {
   trade: Trade | null;
@@ -22,18 +28,22 @@ interface TradeFormDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function TradeFormDialog({ trade, open, onOpenChange }: TradeFormDialogProps) {
+export default function TradeFormDialog({
+  trade,
+  open,
+  onOpenChange,
+}: TradeFormDialogProps) {
   const addTrade = useAddTrade();
   const updateTrade = useUpdateTrade();
   const isEditing = !!trade;
 
   const [formData, setFormData] = useState({
-    symbol: '',
+    symbol: "",
     direction: Variant_buy_sell.buy,
-    entryPrice: '',
-    exitPrice: '',
-    quantity: '',
-    profitLoss: '',
+    entryPrice: "",
+    exitPrice: "",
+    quantity: "",
+    profitLoss: "",
   });
 
   useEffect(() => {
@@ -48,12 +58,12 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
       });
     } else {
       setFormData({
-        symbol: '',
+        symbol: "",
         direction: Variant_buy_sell.buy,
-        entryPrice: '',
-        exitPrice: '',
-        quantity: '',
-        profitLoss: '',
+        entryPrice: "",
+        exitPrice: "",
+        quantity: "",
+        profitLoss: "",
       });
     }
   }, [trade]);
@@ -65,24 +75,24 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
       id: trade?.id || BigInt(0),
       symbol: formData.symbol,
       direction: formData.direction,
-      entryPrice: parseFloat(formData.entryPrice),
-      exitPrice: parseFloat(formData.exitPrice),
-      quantity: parseFloat(formData.quantity),
-      profitLoss: parseFloat(formData.profitLoss),
+      entryPrice: Number.parseFloat(formData.entryPrice),
+      exitPrice: Number.parseFloat(formData.exitPrice),
+      quantity: Number.parseFloat(formData.quantity),
+      profitLoss: Number.parseFloat(formData.profitLoss),
       timestamp: trade?.timestamp || BigInt(Date.now() * 1000000),
     };
 
     try {
       if (isEditing) {
         await updateTrade.mutateAsync({ id: trade.id, trade: tradeData });
-        toast.success('Trade updated successfully');
+        toast.success("Trade updated successfully");
       } else {
         await addTrade.mutateAsync(tradeData);
-        toast.success('Trade added successfully');
+        toast.success("Trade added successfully");
       }
       onOpenChange(false);
     } catch (error) {
-      toast.error(isEditing ? 'Failed to update trade' : 'Failed to add trade');
+      toast.error(isEditing ? "Failed to update trade" : "Failed to add trade");
       console.error(error);
     }
   };
@@ -94,9 +104,13 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
       <DialogContent className="sm:max-w-[500px]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>{isEditing ? 'Edit Trade' : 'Add New Trade'}</DialogTitle>
+            <DialogTitle>
+              {isEditing ? "Edit Trade" : "Add New Trade"}
+            </DialogTitle>
             <DialogDescription>
-              {isEditing ? 'Update the trade details below.' : 'Enter the trade details below.'}
+              {isEditing
+                ? "Update the trade details below."
+                : "Enter the trade details below."}
             </DialogDescription>
           </DialogHeader>
 
@@ -106,7 +120,9 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
               <Input
                 id="symbol"
                 value={formData.symbol}
-                onChange={(e) => setFormData({ ...formData, symbol: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, symbol: e.target.value })
+                }
                 placeholder="e.g., EURUSD"
                 required
               />
@@ -138,7 +154,9 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
                   type="number"
                   step="0.01"
                   value={formData.entryPrice}
-                  onChange={(e) => setFormData({ ...formData, entryPrice: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, entryPrice: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -150,7 +168,9 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
                   type="number"
                   step="0.01"
                   value={formData.exitPrice}
-                  onChange={(e) => setFormData({ ...formData, exitPrice: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, exitPrice: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -164,7 +184,9 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
                   type="number"
                   step="0.01"
                   value={formData.quantity}
-                  onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, quantity: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -176,7 +198,9 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
                   type="number"
                   step="0.01"
                   value={formData.profitLoss}
-                  onChange={(e) => setFormData({ ...formData, profitLoss: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, profitLoss: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -184,12 +208,16 @@ export default function TradeFormDialog({ trade, open, onOpenChange }: TradeForm
           </div>
 
           <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => onOpenChange(false)}
+            >
               Cancel
             </Button>
             <Button type="submit" disabled={isPending}>
               {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isEditing ? 'Update' : 'Add'} Trade
+              {isEditing ? "Update" : "Add"} Trade
             </Button>
           </DialogFooter>
         </form>

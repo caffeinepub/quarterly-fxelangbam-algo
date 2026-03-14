@@ -1,9 +1,9 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import TradesAdminTable from '../components/TradesAdminTable';
-import AccountsAdminTable from '../components/AccountsAdminTable';
-import MetricsEditorCard from '../components/MetricsEditorCard';
-import CsvTradeImportPanel from '../components/CsvTradeImportPanel';
-import { BarChart3, TrendingUp, Users, Upload } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BarChart3, TrendingUp, Upload, Users } from "lucide-react";
+import AccountsAdminTable from "../components/AccountsAdminTable";
+import CsvTradeImportPanel from "../components/CsvTradeImportPanel";
+import MetricsEditorCard from "../components/MetricsEditorCard";
+import TradesAdminTable from "../components/TradesAdminTable";
 
 export default function AdminDashboardPage() {
   return (

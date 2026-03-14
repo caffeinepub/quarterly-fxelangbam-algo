@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-const STORAGE_KEY = 'site_gate_unlocked';
-const VALID_USERNAME = 'Ralgo';
-const VALID_PASSWORD = '001';
+const STORAGE_KEY = "site_gate_unlocked";
+const VALID_USERNAME = "Ralgo";
+const VALID_PASSWORD = "001";
 
 interface SiteGateState {
   isUnlocked: boolean;
@@ -17,13 +17,13 @@ export function useSiteGate() {
 
   useEffect(() => {
     // Check sessionStorage on mount
-    const unlocked = sessionStorage.getItem(STORAGE_KEY) === 'true';
+    const unlocked = sessionStorage.getItem(STORAGE_KEY) === "true";
     setState({ isUnlocked: unlocked, isLoading: false });
   }, []);
 
   const attemptUnlock = (username: string, password: string): boolean => {
     if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-      sessionStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_KEY, "true");
       setState({ isUnlocked: true, isLoading: false });
       return true;
     }
@@ -31,7 +31,7 @@ export function useSiteGate() {
   };
 
   const unlock = () => {
-    sessionStorage.setItem(STORAGE_KEY, 'true');
+    sessionStorage.setItem(STORAGE_KEY, "true");
     setState({ isUnlocked: true, isLoading: false });
   };
 

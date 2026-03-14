@@ -1,7 +1,7 @@
-import { useState, ReactNode } from 'react';
-import { useNavigate } from '@tanstack/react-router';
-import { useSiteGate } from './useSiteGate';
-import GateScreen from './GateScreen';
+import { useNavigate } from "@tanstack/react-router";
+import { type ReactNode, useState } from "react";
+import GateScreen from "./GateScreen";
+import { useSiteGate } from "./useSiteGate";
 
 interface SiteWideGateProps {
   children: ReactNode;
@@ -21,14 +21,14 @@ export default function SiteWideGate({ children }: SiteWideGateProps) {
     // Small delay to show loading state
     setTimeout(() => {
       const success = attemptUnlock(username, password);
-      
+
       if (success) {
         // Navigate to home page on success
-        navigate({ to: '/' });
+        navigate({ to: "/" });
       } else {
-        setError('Invalid username or password. Please try again.');
+        setError("Invalid username or password. Please try again.");
       }
-      
+
       setIsSubmitting(false);
     }, 300);
   };

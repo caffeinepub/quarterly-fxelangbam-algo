@@ -1,23 +1,30 @@
-import { useState } from 'react';
-import { useAddTrade } from '../hooks/useAdminMutations';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Upload, CheckCircle2, XCircle } from 'lucide-react';
-import { parseCsvTrades, type ValidationResult } from '../utils/csv';
-import { toast } from 'sonner';
-import { Variant_buy_sell } from '@/backend';
+import { Variant_buy_sell } from "@/backend";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { CheckCircle2, Loader2, Upload, XCircle } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { useAddTrade } from "../hooks/useAdminMutations";
+import { type ValidationResult, parseCsvTrades } from "../utils/csv";
 
 export default function CsvTradeImportPanel() {
   const addTrade = useAddTrade();
-  const [file, setFile] = useState<File | null>(null);
+  const [_file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<ValidationResult | null>(null);
   const [importing, setImporting] = useState(false);
-  const [importResults, setImportResults] = useState<{ success: number; failed: number } | null>(
-    null
-  );
+  const [importResults, setImportResults] = useState<{
+    success: number;
+    failed: number;
+  } | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -45,7 +52,10 @@ export default function CsvTradeImportPanel() {
 
     for (const trade of preview.valid) {
       try {
-        const direction = trade.direction === 'buy' ? Variant_buy_sell.buy : Variant_buy_sell.sell;
+        const direction =
+          trade.direction === "buy"
+            ? Variant_buy_sell.buy
+            : Variant_buy_sell.sell;
         await addTrade.mutateAsync({
           id: BigInt(0),
           symbol: trade.symbol,
@@ -58,7 +68,7 @@ export default function CsvTradeImportPanel() {
         });
         success++;
       } catch (error) {
-        console.error('Failed to import trade:', error);
+        console.error("Failed to import trade:", error);
         failed++;
       }
     }
@@ -77,8 +87,8 @@ export default function CsvTradeImportPanel() {
       <CardHeader>
         <CardTitle>CSV Trade Import</CardTitle>
         <CardDescription>
-          Upload a CSV file with columns: symbol, direction, entryPrice, exitPrice, quantity,
-          profitLoss, timestamp
+          Upload a CSV file with columns: symbol, direction, entryPrice,
+          exitPrice, quantity, profitLoss, timestamp
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -99,12 +109,16 @@ export default function CsvTradeImportPanel() {
               <AlertDescription>
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle2 className="h-4 w-4 text-chart-2" />
-                  <span className="font-semibold">{preview.valid.length} valid trades</span>
+                  <span className="font-semibold">
+                    {preview.valid.length} valid trades
+                  </span>
                 </div>
                 {preview.invalid.length > 0 && (
                   <div className="flex items-center gap-2">
                     <XCircle className="h-4 w-4 text-destructive" />
-                    <span className="font-semibold">{preview.invalid.length} invalid rows</span>
+                    <span className="font-semibold">
+                      {preview.invalid.length} invalid rows
+                    </span>
                   </div>
                 )}
               </AlertDescription>
@@ -112,10 +126,15 @@ export default function CsvTradeImportPanel() {
 
             {preview.valid.length > 0 && (
               <div className="rounded-md border p-4 max-h-[300px] overflow-y-auto">
-                <h4 className="font-semibold mb-2">Preview (first 5 trades):</h4>
+                <h4 className="font-semibold mb-2">
+                  Preview (first 5 trades):
+                </h4>
                 <div className="space-y-2 text-sm">
-                  {preview.valid.slice(0, 5).map((trade, i) => (
-                    <div key={i} className="flex gap-4 text-xs">
+                  {preview.valid.slice(0, 5).map((trade) => (
+                    <div
+                      key={`${trade.symbol}-${trade.timestamp}-${trade.profitLoss}`}
+                      className="flex gap-4 text-xs"
+                    >
                       <span className="font-mono">{trade.symbol}</span>
                       <span className="uppercase">{trade.direction}</span>
                       <span>${trade.profitLoss.toFixed(2)}</span>
@@ -128,10 +147,14 @@ export default function CsvTradeImportPanel() {
             {preview.invalid.length > 0 && (
               <Alert variant="destructive">
                 <AlertDescription>
-                  <p className="font-semibold mb-1">Invalid rows will be skipped:</p>
+                  <p className="font-semibold mb-1">
+                    Invalid rows will be skipped:
+                  </p>
                   <ul className="text-xs space-y-1">
-                    {preview.invalid.slice(0, 3).map((error, i) => (
-                      <li key={i}>Row {error.row}: {error.error}</li>
+                    {preview.invalid.slice(0, 3).map((error) => (
+                      <li key={`${error.row}-${error.error}`}>
+                        Row {error.row}: {error.error}
+                      </li>
                     ))}
                     {preview.invalid.length > 3 && (
                       <li>...and {preview.invalid.length - 3} more</li>
@@ -167,7 +190,9 @@ export default function CsvTradeImportPanel() {
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-chart-2">
                   <CheckCircle2 className="h-4 w-4" />
-                  <span>{importResults.success} trades imported successfully</span>
+                  <span>
+                    {importResults.success} trades imported successfully
+                  </span>
                 </div>
                 {importResults.failed > 0 && (
                   <div className="flex items-center gap-2 text-destructive">

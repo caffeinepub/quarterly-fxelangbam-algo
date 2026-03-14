@@ -1,7 +1,7 @@
-import { Link } from '@tanstack/react-router';
-import AppHeader from './AppHeader';
-import PublicFooter from './PublicFooter';
-import { BarChart3, TrendingUp, Users, Home } from 'lucide-react';
+import { Link } from "@tanstack/react-router";
+import { BarChart3, Home, TrendingUp, Users } from "lucide-react";
+import AppHeader from "./AppHeader";
+import PublicFooter from "./PublicFooter";
 
 interface PublicLayoutProps {
   children: React.ReactNode;
@@ -14,9 +14,10 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
       <div
         className="fixed inset-0 opacity-[0.02] pointer-events-none"
         style={{
-          backgroundImage: 'url(/assets/generated/trading-bg-texture.dim_1920x1080.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage:
+            "url(/assets/generated/trading-bg-texture.dim_1920x1080.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
 
@@ -29,7 +30,7 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
             <Link
               to="/"
               className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-primary [&.active]:text-primary [&.active]:border-b-2 [&.active]:border-primary"
-              activeProps={{ className: 'active' }}
+              activeProps={{ className: "active" }}
             >
               <Home className="h-4 w-4" />
               <span>Home</span>
@@ -37,7 +38,7 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
             <Link
               to="/portfolio"
               className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-primary [&.active]:text-primary [&.active]:border-b-2 [&.active]:border-primary"
-              activeProps={{ className: 'active' }}
+              activeProps={{ className: "active" }}
             >
               <TrendingUp className="h-4 w-4" />
               <span>Portfolio</span>
@@ -45,7 +46,7 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
             <Link
               to="/accounts"
               className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-primary [&.active]:text-primary [&.active]:border-b-2 [&.active]:border-primary"
-              activeProps={{ className: 'active' }}
+              activeProps={{ className: "active" }}
             >
               <Users className="h-4 w-4" />
               <span>Managed Accounts</span>
@@ -53,7 +54,7 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
             <Link
               to="/analytics"
               className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-primary [&.active]:text-primary [&.active]:border-b-2 [&.active]:border-primary"
-              activeProps={{ className: 'active' }}
+              activeProps={{ className: "active" }}
             >
               <BarChart3 className="h-4 w-4" />
               <span>Analytics</span>

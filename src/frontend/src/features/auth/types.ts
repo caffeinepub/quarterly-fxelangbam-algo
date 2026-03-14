@@ -1,4 +1,9 @@
-export type AuthStatus = 'initializing' | 'idle' | 'authenticating' | 'authenticated' | 'error';
+export type AuthStatus =
+  | "initializing"
+  | "idle"
+  | "authenticating"
+  | "authenticated"
+  | "error";
 
 export interface AuthState {
   isAuthenticated: boolean;

@@ -1,10 +1,16 @@
-import { useState, FormEvent } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Lock } from 'lucide-react';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Lock } from "lucide-react";
+import { type FormEvent, useState } from "react";
 
 interface GateScreenProps {
   onSubmit: (username: string, password: string) => void;
@@ -12,9 +18,13 @@ interface GateScreenProps {
   isSubmitting: boolean;
 }
 
-export default function GateScreen({ onSubmit, error, isSubmitting }: GateScreenProps) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function GateScreen({
+  onSubmit,
+  error,
+  isSubmitting,
+}: GateScreenProps) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -68,7 +78,7 @@ export default function GateScreen({ onSubmit, error, isSubmitting }: GateScreen
               </Alert>
             )}
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? 'Verifying...' : 'Access Site'}
+              {isSubmitting ? "Verifying..." : "Access Site"}
             </Button>
           </form>
         </CardContent>

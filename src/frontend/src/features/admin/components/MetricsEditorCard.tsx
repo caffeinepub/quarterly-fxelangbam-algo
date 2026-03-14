@@ -1,25 +1,31 @@
-import { useState, useEffect } from 'react';
-import { useGetPerformanceMetrics } from '@/features/data/queries';
-import { useUpdateMetrics } from '../hooks/useAdminMutations';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useGetPerformanceMetrics } from "@/features/data/queries";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { useUpdateMetrics } from "../hooks/useAdminMutations";
 
 export default function MetricsEditorCard() {
   const { data: metrics, isLoading } = useGetPerformanceMetrics();
   const updateMetrics = useUpdateMetrics();
 
   const [formData, setFormData] = useState({
-    totalPnl: '',
-    totalTrades: '',
-    winningTrades: '',
-    roi: '',
-    maxDrawdown: '',
-    totalCapital: '',
+    totalPnl: "",
+    totalTrades: "",
+    winningTrades: "",
+    roi: "",
+    maxDrawdown: "",
+    totalCapital: "",
   });
 
   useEffect(() => {
@@ -40,16 +46,16 @@ export default function MetricsEditorCard() {
 
     try {
       await updateMetrics.mutateAsync({
-        totalPnl: parseFloat(formData.totalPnl),
+        totalPnl: Number.parseFloat(formData.totalPnl),
         totalTrades: BigInt(formData.totalTrades),
         winningTrades: BigInt(formData.winningTrades),
-        roi: parseFloat(formData.roi),
-        maxDrawdown: parseFloat(formData.maxDrawdown),
-        totalCapital: parseFloat(formData.totalCapital),
+        roi: Number.parseFloat(formData.roi),
+        maxDrawdown: Number.parseFloat(formData.maxDrawdown),
+        totalCapital: Number.parseFloat(formData.totalCapital),
       });
-      toast.success('Metrics updated successfully');
+      toast.success("Metrics updated successfully");
     } catch (error) {
-      toast.error('Failed to update metrics');
+      toast.error("Failed to update metrics");
       console.error(error);
     }
   };
@@ -58,7 +64,9 @@ export default function MetricsEditorCard() {
     <Card>
       <CardHeader>
         <CardTitle>Performance Metrics</CardTitle>
-        <CardDescription>Update overall trading performance metrics</CardDescription>
+        <CardDescription>
+          Update overall trading performance metrics
+        </CardDescription>
       </CardHeader>
       <CardContent>
         {isLoading ? (
@@ -77,7 +85,9 @@ export default function MetricsEditorCard() {
                   type="number"
                   step="0.01"
                   value={formData.totalPnl}
-                  onChange={(e) => setFormData({ ...formData, totalPnl: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, totalPnl: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -88,7 +98,9 @@ export default function MetricsEditorCard() {
                   id="totalTrades"
                   type="number"
                   value={formData.totalTrades}
-                  onChange={(e) => setFormData({ ...formData, totalTrades: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, totalTrades: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -99,7 +111,9 @@ export default function MetricsEditorCard() {
                   id="winningTrades"
                   type="number"
                   value={formData.winningTrades}
-                  onChange={(e) => setFormData({ ...formData, winningTrades: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, winningTrades: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -111,7 +125,9 @@ export default function MetricsEditorCard() {
                   type="number"
                   step="0.01"
                   value={formData.roi}
-                  onChange={(e) => setFormData({ ...formData, roi: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, roi: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -123,7 +139,9 @@ export default function MetricsEditorCard() {
                   type="number"
                   step="0.01"
                   value={formData.maxDrawdown}
-                  onChange={(e) => setFormData({ ...formData, maxDrawdown: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, maxDrawdown: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -135,14 +153,18 @@ export default function MetricsEditorCard() {
                   type="number"
                   step="0.01"
                   value={formData.totalCapital}
-                  onChange={(e) => setFormData({ ...formData, totalCapital: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, totalCapital: e.target.value })
+                  }
                   required
                 />
               </div>
             </div>
 
             <Button type="submit" disabled={updateMetrics.isPending}>
-              {updateMetrics.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {updateMetrics.isPending && (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Update Metrics
             </Button>
           </form>

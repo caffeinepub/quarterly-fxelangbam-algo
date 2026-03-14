@@ -1,4 +1,4 @@
-import type { MonthlyPnlData } from '../utils/analytics';
+import type { MonthlyPnlData } from "../utils/analytics";
 
 interface MonthlyPnlChartProps {
   data: MonthlyPnlData[];
@@ -24,6 +24,8 @@ export default function MonthlyPnlChart({ data }: MonthlyPnlChartProps) {
         width={Math.max(chartWidth, 600)}
         height={chartHeight + 60}
         className="mx-auto"
+        role="img"
+        aria-label="Monthly PnL chart"
       >
         {/* Zero line */}
         <line
@@ -39,12 +41,17 @@ export default function MonthlyPnlChart({ data }: MonthlyPnlChartProps) {
         {/* Bars */}
         {data.map((item, index) => {
           const x = index * (barWidth + 10) + 20;
-          const barHeight = (Math.abs(item.pnl) / maxPnl) * (chartHeight / 2 - 20);
-          const y = item.pnl >= 0 ? chartHeight / 2 - barHeight : chartHeight / 2;
-          const color = item.pnl >= 0 ? 'oklch(var(--chart-2))' : 'oklch(var(--destructive))';
+          const barHeight =
+            (Math.abs(item.pnl) / maxPnl) * (chartHeight / 2 - 20);
+          const y =
+            item.pnl >= 0 ? chartHeight / 2 - barHeight : chartHeight / 2;
+          const color =
+            item.pnl >= 0
+              ? "oklch(var(--chart-2))"
+              : "oklch(var(--destructive))";
 
           return (
-            <g key={index}>
+            <g key={item.month}>
               <rect
                 x={x}
                 y={y}

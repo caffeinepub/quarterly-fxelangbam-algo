@@ -1,5 +1,11 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Label } from '@/components/ui/label';
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface TradeFiltersProps {
   filters: {
@@ -7,22 +13,34 @@ interface TradeFiltersProps {
     year: string;
     result: string;
   };
-  onFiltersChange: (filters: { month: string; year: string; result: string }) => void;
+  onFiltersChange: (filters: {
+    month: string;
+    year: string;
+    result: string;
+  }) => void;
 }
 
-export default function TradeFilters({ filters, onFiltersChange }: TradeFiltersProps) {
+export default function TradeFilters({
+  filters,
+  onFiltersChange,
+}: TradeFiltersProps) {
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
 
   return (
     <div className="flex flex-wrap gap-4 mt-4">
       <div className="flex-1 min-w-[150px]">
-        <Label htmlFor="month-filter" className="text-xs text-muted-foreground mb-2 block">
+        <Label
+          htmlFor="month-filter"
+          className="text-xs text-muted-foreground mb-2 block"
+        >
           Month
         </Label>
         <Select
           value={filters.month}
-          onValueChange={(value) => onFiltersChange({ ...filters, month: value })}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, month: value })
+          }
         >
           <SelectTrigger id="month-filter">
             <SelectValue placeholder="All Months" />
@@ -46,12 +64,17 @@ export default function TradeFilters({ filters, onFiltersChange }: TradeFiltersP
       </div>
 
       <div className="flex-1 min-w-[150px]">
-        <Label htmlFor="year-filter" className="text-xs text-muted-foreground mb-2 block">
+        <Label
+          htmlFor="year-filter"
+          className="text-xs text-muted-foreground mb-2 block"
+        >
           Year
         </Label>
         <Select
           value={filters.year}
-          onValueChange={(value) => onFiltersChange({ ...filters, year: value })}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, year: value })
+          }
         >
           <SelectTrigger id="year-filter">
             <SelectValue placeholder="All Years" />
@@ -68,12 +91,17 @@ export default function TradeFilters({ filters, onFiltersChange }: TradeFiltersP
       </div>
 
       <div className="flex-1 min-w-[150px]">
-        <Label htmlFor="result-filter" className="text-xs text-muted-foreground mb-2 block">
+        <Label
+          htmlFor="result-filter"
+          className="text-xs text-muted-foreground mb-2 block"
+        >
           Result
         </Label>
         <Select
           value={filters.result}
-          onValueChange={(value) => onFiltersChange({ ...filters, result: value })}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, result: value })
+          }
         >
           <SelectTrigger id="result-filter">
             <SelectValue placeholder="All Results" />

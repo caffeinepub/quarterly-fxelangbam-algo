@@ -1,13 +1,13 @@
-import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { useQuery } from '@tanstack/react-query';
-import { useActor } from '@/hooks/useActor';
+import { useActor } from "@/hooks/useActor";
+import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { useQuery } from "@tanstack/react-query";
 
 export function useAdminAuth() {
   const { identity, loginStatus } = useInternetIdentity();
   const { actor, isFetching: actorFetching } = useActor();
 
   const isAdminQuery = useQuery({
-    queryKey: ['isAdmin', identity?.getPrincipal().toString()],
+    queryKey: ["isAdmin", identity?.getPrincipal().toString()],
     queryFn: async () => {
       if (!actor || !identity) return false;
       try {
@@ -26,7 +26,8 @@ export function useAdminAuth() {
   return {
     isAuthenticated,
     isAdmin,
-    isLoading: loginStatus === 'initializing' || actorFetching || isAdminQuery.isLoading,
+    isLoading:
+      loginStatus === "initializing" || actorFetching || isAdminQuery.isLoading,
     status: loginStatus,
   };
 }

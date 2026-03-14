@@ -1,10 +1,16 @@
-import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { useAdminAuth } from '../hooks/useAdminAuth';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useNavigate } from '@tanstack/react-router';
-import { useEffect } from 'react';
-import { Shield, Loader2 } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { useNavigate } from "@tanstack/react-router";
+import { Loader2, Shield } from "lucide-react";
+import { useEffect } from "react";
+import { useAdminAuth } from "../hooks/useAdminAuth";
 
 export default function AdminLoginPage() {
   const { login, loginStatus } = useInternetIdentity();
@@ -13,7 +19,7 @@ export default function AdminLoginPage() {
 
   useEffect(() => {
     if (isAuthenticated && isAdmin) {
-      navigate({ to: '/admin/dashboard' });
+      navigate({ to: "/admin/dashboard" });
     }
   }, [isAuthenticated, isAdmin, navigate]);
 
@@ -21,11 +27,11 @@ export default function AdminLoginPage() {
     try {
       await login();
     } catch (error) {
-      console.error('Login error:', error);
+      console.error("Login error:", error);
     }
   };
 
-  const isProcessing = loginStatus === 'logging-in' || isLoading;
+  const isProcessing = loginStatus === "logging-in" || isLoading;
 
   return (
     <div className="flex items-center justify-center min-h-[600px]">
@@ -52,7 +58,7 @@ export default function AdminLoginPage() {
                 Authenticating...
               </>
             ) : (
-              'Sign In'
+              "Sign In"
             )}
           </Button>
 

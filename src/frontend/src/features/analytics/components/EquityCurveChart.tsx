@@ -1,4 +1,4 @@
-import type { EquityPoint } from '../utils/analytics';
+import type { EquityPoint } from "../utils/analytics";
 
 interface EquityCurveChartProps {
   data: EquityPoint[];
@@ -22,7 +22,13 @@ export default function EquityCurveChart({ data }: EquityCurveChartProps) {
 
   return (
     <div className="w-full overflow-x-auto">
-      <svg width={chartWidth} height={chartHeight} className="mx-auto">
+      <svg
+        width={chartWidth}
+        height={chartHeight}
+        className="mx-auto"
+        role="img"
+        aria-label="Equity curve chart"
+      >
         {/* Grid lines */}
         {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
           const y = padding + (1 - ratio) * (chartHeight - 2 * padding);
@@ -52,9 +58,23 @@ export default function EquityCurveChart({ data }: EquityCurveChartProps) {
 
         {/* Area fill */}
         <defs>
-          <linearGradient id="equity-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="oklch(var(--chart-1))" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="oklch(var(--chart-1))" stopOpacity="0.05" />
+          <linearGradient
+            id="equity-gradient"
+            x1="0%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              stopColor="oklch(var(--chart-1))"
+              stopOpacity="0.3"
+            />
+            <stop
+              offset="100%"
+              stopColor="oklch(var(--chart-1))"
+              stopOpacity="0.05"
+            />
           </linearGradient>
         </defs>
 
@@ -62,13 +82,15 @@ export default function EquityCurveChart({ data }: EquityCurveChartProps) {
           d={`M ${padding} ${chartHeight - padding} ${data
             .map((point) => {
               const x =
-                padding + (point.index / (data.length - 1)) * (chartWidth - 2 * padding);
+                padding +
+                (point.index / (data.length - 1)) * (chartWidth - 2 * padding);
               const y =
                 padding +
-                (1 - (point.equity - minEquity) / range) * (chartHeight - 2 * padding);
+                (1 - (point.equity - minEquity) / range) *
+                  (chartHeight - 2 * padding);
               return `L ${x} ${y}`;
             })
-            .join(' ')} L ${chartWidth - padding} ${chartHeight - padding} Z`}
+            .join(" ")} L ${chartWidth - padding} ${chartHeight - padding} Z`}
           fill="url(#equity-gradient)"
         />
 
@@ -77,13 +99,15 @@ export default function EquityCurveChart({ data }: EquityCurveChartProps) {
           d={`M ${data
             .map((point) => {
               const x =
-                padding + (point.index / (data.length - 1)) * (chartWidth - 2 * padding);
+                padding +
+                (point.index / (data.length - 1)) * (chartWidth - 2 * padding);
               const y =
                 padding +
-                (1 - (point.equity - minEquity) / range) * (chartHeight - 2 * padding);
+                (1 - (point.equity - minEquity) / range) *
+                  (chartHeight - 2 * padding);
               return `${x} ${y}`;
             })
-            .join(' L ')}`}
+            .join(" L ")}`}
           fill="none"
           stroke="oklch(var(--chart-1))"
           strokeWidth="2.5"

@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { useGetAllTrades } from '@/features/data/queries';
-import { useDeleteTrade } from '../hooks/useAdminMutations';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Trade } from "@/backend";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -10,12 +9,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import TradeFormDialog from './TradeFormDialog';
-import type { Trade } from '@/backend';
-import { toast } from 'sonner';
+} from "@/components/ui/table";
+import { useGetAllTrades } from "@/features/data/queries";
+import { Pencil, Plus, Trash2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { useDeleteTrade } from "../hooks/useAdminMutations";
+import TradeFormDialog from "./TradeFormDialog";
 
 export default function TradesAdminTable() {
   const { data: trades, isLoading } = useGetAllTrades();
@@ -24,13 +24,13 @@ export default function TradesAdminTable() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   const handleDelete = async (id: bigint) => {
-    if (!confirm('Are you sure you want to delete this trade?')) return;
+    if (!confirm("Are you sure you want to delete this trade?")) return;
 
     try {
       await deleteTrade.mutateAsync(id);
-      toast.success('Trade deleted successfully');
+      toast.success("Trade deleted successfully");
     } catch (error) {
-      toast.error('Failed to delete trade');
+      toast.error("Failed to delete trade");
       console.error(error);
     }
   };
@@ -69,15 +69,27 @@ export default function TradesAdminTable() {
                 <TableBody>
                   {trades.map((trade) => (
                     <TableRow key={Number(trade.id)}>
-                      <TableCell className="font-mono font-semibold">{trade.symbol}</TableCell>
-                      <TableCell className="uppercase">{trade.direction}</TableCell>
-                      <TableCell className="text-right">${trade.entryPrice.toFixed(2)}</TableCell>
-                      <TableCell className="text-right">${trade.exitPrice.toFixed(2)}</TableCell>
-                      <TableCell className="text-right">{trade.quantity.toFixed(2)}</TableCell>
+                      <TableCell className="font-mono font-semibold">
+                        {trade.symbol}
+                      </TableCell>
+                      <TableCell className="uppercase">
+                        {trade.direction}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ${trade.entryPrice.toFixed(2)}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        ${trade.exitPrice.toFixed(2)}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        {trade.quantity.toFixed(2)}
+                      </TableCell>
                       <TableCell className="text-right">
                         <span
                           className={
-                            trade.profitLoss >= 0 ? 'text-chart-2' : 'text-destructive'
+                            trade.profitLoss >= 0
+                              ? "text-chart-2"
+                              : "text-destructive"
                           }
                         >
                           ${trade.profitLoss.toFixed(2)}
