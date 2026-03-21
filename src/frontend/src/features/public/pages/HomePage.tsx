@@ -133,7 +133,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-12 w-32" />
               ) : (
-                <div className="text-4xl font-bold text-chart-2">3</div>
+                <div className="text-4xl font-bold text-chart-2">8</div>
               )}
             </CardContent>
           </Card>
