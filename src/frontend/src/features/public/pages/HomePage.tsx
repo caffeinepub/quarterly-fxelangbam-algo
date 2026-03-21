@@ -62,7 +62,7 @@ export default function HomePage() {
                         : "text-destructive"
                     }
                   >
-                    $108.7
+                    $282.8
                   </span>
                 </div>
               )}
@@ -81,7 +81,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-24" />
               ) : (
-                <div className="text-3xl font-bold text-chart-1">100%</div>
+                <div className="text-3xl font-bold text-chart-1">71%</div>
               )}
             </CardContent>
           </Card>
@@ -98,7 +98,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-20" />
               ) : (
-                <div className="text-3xl font-bold text-chart-3">3</div>
+                <div className="text-3xl font-bold text-chart-3">11</div>
               )}
             </CardContent>
           </Card>
@@ -146,7 +146,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-12 w-32" />
               ) : (
-                <div className="text-4xl font-bold text-destructive">1</div>
+                <div className="text-4xl font-bold text-destructive">78</div>
               )}
             </CardContent>
           </Card>
@@ -165,7 +165,7 @@ export default function HomePage() {
               <TrendingUp className="h-4 w-4 text-chart-2" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-2">$0</div>
+              <div className="text-3xl font-bold text-chart-2">$7.89</div>
             </CardContent>
           </Card>
 
@@ -177,7 +177,7 @@ export default function HomePage() {
               <Activity className="h-4 w-4 text-chart-3" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-3">0</div>
+              <div className="text-3xl font-bold text-chart-3">252</div>
             </CardContent>
           </Card>
 
@@ -189,7 +189,7 @@ export default function HomePage() {
               <Target className="h-4 w-4 text-chart-1" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-1">0%</div>
+              <div className="text-3xl font-bold text-chart-1">41%</div>
             </CardContent>
           </Card>
 
@@ -201,7 +201,7 @@ export default function HomePage() {
               <TrendingUp className="h-4 w-4 text-chart-2" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-2">0</div>
+              <div className="text-3xl font-bold text-chart-2">101</div>
             </CardContent>
           </Card>
 
@@ -213,7 +213,7 @@ export default function HomePage() {
               <TrendingDown className="h-4 w-4 text-destructive" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-destructive">0</div>
+              <div className="text-3xl font-bold text-destructive">151</div>
             </CardContent>
           </Card>
 
