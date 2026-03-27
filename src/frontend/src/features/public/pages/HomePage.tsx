@@ -189,7 +189,7 @@ export default function HomePage() {
               <Target className="h-4 w-4 text-chart-1" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-1">41%</div>
+              <div className="text-3xl font-bold text-chart-1">42.3%</div>
             </CardContent>
           </Card>
 
