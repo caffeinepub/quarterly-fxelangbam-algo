@@ -165,7 +165,7 @@ export default function HomePage() {
               <TrendingUp className="h-4 w-4 text-chart-2" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-2">$7.89</div>
+              <div className="text-3xl font-bold text-chart-2">$108</div>
             </CardContent>
           </Card>
 
@@ -177,7 +177,7 @@ export default function HomePage() {
               <Activity className="h-4 w-4 text-chart-3" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-3">252</div>
+              <div className="text-3xl font-bold text-chart-3">189</div>
             </CardContent>
           </Card>
 
@@ -201,7 +201,7 @@ export default function HomePage() {
               <TrendingUp className="h-4 w-4 text-chart-2" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-chart-2">101</div>
+              <div className="text-3xl font-bold text-chart-2">185</div>
             </CardContent>
           </Card>
 
@@ -213,7 +213,7 @@ export default function HomePage() {
               <TrendingDown className="h-4 w-4 text-destructive" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-destructive">151</div>
+              <div className="text-3xl font-bold text-destructive">252</div>
             </CardContent>
           </Card>
 
