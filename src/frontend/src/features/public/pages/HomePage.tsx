@@ -62,7 +62,7 @@ export default function HomePage() {
                         : "text-destructive"
                     }
                   >
-                    $282.8
+                    $208
                   </span>
                 </div>
               )}
@@ -81,7 +81,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-24" />
               ) : (
-                <div className="text-3xl font-bold text-chart-1">71%</div>
+                <div className="text-3xl font-bold text-chart-1">61%</div>
               )}
             </CardContent>
           </Card>
@@ -98,7 +98,7 @@ export default function HomePage() {
               {isLoading ? (
                 <Skeleton className="h-8 w-20" />
               ) : (
-                <div className="text-3xl font-bold text-chart-3">11</div>
+                <div className="text-3xl font-bold text-chart-3">14</div>
               )}
             </CardContent>
           </Card>
